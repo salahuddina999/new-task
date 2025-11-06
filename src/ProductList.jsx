@@ -19,16 +19,15 @@ export default function ProductList() {
     
     const response = axios.post(
       "http://localhost:4242/create-checkout-session",
-      { product }, // ✅ request body
+      { product }, 
       {
-        headers: { "Content-Type": "application/json" }, // ✅ config (headers)
+        headers: { "Content-Type": "application/json" }, 
       }
     );
 
     const { url } = (await response).data
-    console.log("-=-=-=-=-=-=", url, response.url);
     window.location.href = url;
-    // window.location.href = session.url; // Redirect to Stripe Checkout
+    
   };
 
   return (
